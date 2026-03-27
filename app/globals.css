@@ -1,0 +1,294 @@
+@import "tailwindcss";
+
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600;6..72,700&display=swap');
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* ============================================
+   LIGHT MODE - Warm Tan Theme (Default)
+   ============================================ */
+:root {
+  /* Core colors */
+  --tan: #e8d5c4;
+  --tan-light: #f0e2d4;
+  --tan-dark: #d4c4b0;
+  --brown: #7d562d;
+  --brown-light: #a67c52;
+  --brown-dark: #5a3d1f;
+  
+  /* Semantic colors */
+  --bg-canvas: #f5efe6;
+  --text-main: #3c2820;
+  --text-muted: #6b5040;
+  
+  /* Game colors */
+  --start-cell: #5a7d4a;
+  --end-cell: #a05a52;
+  --path-lit: #d4c4b0;
+  
+  /* Surface colors */
+  --background: #f5efe6;
+  --surface: #f0e2d4;
+  --surface-container: #e8d5c4;
+  --surface-container-high: #f0e2d4;
+  --surface-container-highest: #ffffff;
+  
+  /* Primary (Brown) */
+  --primary: #7d562d;
+  --primary-container: #7d562d;
+  --on-primary: #ffffff;
+  --on-primary-container: #ffffff;
+  
+  /* Secondary (Sage) */
+  --secondary: #5a7d4a;
+  --secondary-container: #5a7d4a;
+  --on-secondary: #ffffff;
+  
+  /* Tertiary (Terracotta) */
+  --tertiary: #a05a52;
+  --tertiary-container: #a05a52;
+  --on-tertiary: #ffffff;
+  
+  /* Outline */
+  --outline: #d4c4b0;
+  --outline-variant: #e8d5c4;
+  
+  /* On colors */
+  --on-background: #3c2820;
+  --on-surface: #3c2820;
+  --on-surface-variant: #6b5040;
+}
+
+/* ============================================
+   DARK MODE - Warm Dark Theme
+   ============================================ */
+.dark {
+  /* Core colors */
+  --tan: #2c2a25;
+  --tan-light: #373430;
+  --tan-dark: #211f1b;
+  --brown: #f2be8c;
+  --brown-light: #d4a373;
+  --brown-dark: #7d562d;
+  
+  /* Semantic colors */
+  --bg-canvas: #15130f;
+  --text-main: #e8e1db;
+  --text-muted: #d4c4b7;
+  
+  /* Game colors */
+  --start-cell: #4a6d3a;
+  --end-cell: #8b4a42;
+  --path-lit: rgba(212, 163, 115, 0.5);
+  
+  /* Surface colors */
+  --background: #15130f;
+  --surface: #1d1b17;
+  --surface-container: #211f1b;
+  --surface-container-high: #2c2a25;
+  --surface-container-highest: #373430;
+  
+  /* Primary (Gold) */
+  --primary: #f2be8c;
+  --primary-container: #d4a373;
+  --on-primary: #482904;
+  --on-primary-container: #5b3912;
+  
+  /* Secondary (Sage) */
+  --secondary: #b0d09f;
+  --secondary-container: #334e28;
+  --on-secondary: #1d3613;
+  
+  /* Tertiary (Terracotta) */
+  --tertiary: #ffb5b4;
+  --tertiary-container: #e19a9a;
+  --on-tertiary: #512223;
+  
+  /* Outline */
+  --outline: #9c8e82;
+  --outline-variant: #50453b;
+  
+  /* On colors */
+  --on-background: #e8e1db;
+  --on-surface: #e8e1db;
+  --on-surface-variant: #d4c4b7;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-surface: var(--surface);
+  --color-surface-container: var(--surface-container);
+  --color-surface-container-high: var(--surface-container-high);
+  --color-surface-container-highest: var(--surface-container-highest);
+  
+  --color-primary: var(--primary);
+  --color-primary-container: var(--primary-container);
+  --color-on-primary: var(--on-primary);
+  --color-on-primary-container: var(--on-primary-container);
+  
+  --color-secondary: var(--secondary);
+  --color-secondary-container: var(--secondary-container);
+  --color-on-secondary: var(--on-secondary);
+  
+  --color-tertiary: var(--tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary: var(--on-tertiary);
+  
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+  
+  --color-on-background: var(--on-background);
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+  
+  --font-display: 'Playfair Display', serif;
+  --font-body: 'Inter', sans-serif;
+  --font-headline: 'Newsreader', serif;
+}
+
+* {
+  border-color: var(--outline-variant);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-background);
+  font-family: var(--font-body);
+}
+
+/* Material Symbols */
+.material-symbols-outlined {
+  font-variation-settings:
+    'FILL' 0,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+.material-symbols-outlined.filled {
+  font-variation-settings:
+    'FILL' 1,
+    'wght' 400,
+    'GRAD' 0,
+    'opsz' 24;
+}
+
+/* Spring Transition */
+.spring-transition {
+  transition: all 350ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* Grid Cells */
+.grid-cell {
+  background-color: var(--surface-container-highest);
+  color: var(--on-surface);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+}
+
+.dark .grid-cell {
+  background-color: var(--surface-container-high);
+  box-shadow: none;
+}
+
+.grid-cell:hover {
+  transform: scale(0.95);
+}
+
+/* Path Cell Lit */
+.path-cell-lit {
+  background-color: var(--path-lit) !important;
+}
+
+.dark .path-cell-lit {
+  background-color: rgba(212, 163, 115, 0.5) !important;
+}
+
+/* Start/End Cells */
+.start-cell {
+  background-color: var(--start-cell) !important;
+  border: 2px solid color-mix(in srgb, var(--start-cell) 80%, white);
+}
+
+.end-cell {
+  background-color: var(--end-cell) !important;
+  border: 2px solid color-mix(in srgb, var(--end-cell) 80%, white);
+}
+
+/* Sidebar transitions */
+.sidebar {
+  transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.sidebar-text {
+  transition: opacity 200ms ease, width 200ms ease;
+  white-space: nowrap;
+}
+
+.sidebar.collapsed .sidebar-text {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+.sidebar.collapsed {
+  width: 72px;
+}
+
+.sidebar.expanded {
+  width: 180px;
+}
+
+/* Difficulty Option */
+.difficulty-option {
+  transition: all 200ms ease;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 1px solid rgba(125, 86, 45, 0.2);
+}
+
+.dark .difficulty-option {
+  background-color: transparent;
+  border-color: var(--outline-variant);
+}
+
+.difficulty-option:hover {
+  background-color: rgba(255, 255, 255, 0.8);
+  border-color: var(--brown);
+}
+
+.difficulty-option.selected {
+  background-color: var(--brown);
+  border-color: var(--brown);
+  color: white;
+}
+
+.dark .difficulty-option.selected {
+  background-color: color-mix(in srgb, var(--primary) 25%, transparent);
+  border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+  color: var(--on-surface);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-container);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--outline);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--on-surface-variant);
+}
+
+/* Selection */
+::selection {
+  background-color: var(--primary-container);
+  color: var(--on-primary-container);
+}
